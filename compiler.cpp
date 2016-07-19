@@ -157,7 +157,7 @@ int pilhavazia()
  #define FIM_ARQUIVO 20
  #define QQ 21
 
-//------------------DEFINES SINT¿TICO--------------------------
+//------------------DEFINES SINT√ÄTICO--------------------------
 
 #define PRODUCAO_1 1 //P' -> P
 #define PRODUCAO_2 2 // P -> inicio V A
@@ -181,8 +181,8 @@ int pilhavazia()
 #define PRODUCAO_20 20 //OPRD -> id
 #define PRODUCAO_21 21 //OPRD -> num
 #define PRODUCAO_22 22 // A -> COND A
-#define PRODUCAO_23 23 // COND -> CABE«ALHO CORPO
-#define PRODUCAO_24 24 // CABE«ALHO -> se (EXP_R) ent„o
+#define PRODUCAO_23 23 // COND -> CABE√áALHO CORPO
+#define PRODUCAO_24 24 // CABE√áALHO -> se (EXP_R) ent√£o
 #define PRODUCAO_25 25 // EXP_R -> OPRD opr OPRD
 #define PRODUCAO_26 26 // CORPO -> ES CORPO
 #define PRODUCAO_27 27 // CORPO -> CMD CORPO
@@ -190,7 +190,7 @@ int pilhavazia()
 #define PRODUCAO_29 29 // CORPO -> fimse
 #define PRODUCAO_30 30 // A -> fim
 
-// Parte A da produÁ„o A -> B
+// Parte A da produ√ß√£o A -> B
 #define P0 25
 #define P 26
 #define V 27
@@ -208,7 +208,7 @@ int pilhavazia()
 #define EXP_R 39
 #define CORPO 40
 
-//------------------------Sem‚ntico ------------------------------
+//------------------------Sem√¢ntico ------------------------------
 
 typedef struct tokenatr tokenAtr;
 struct tokenatr{
@@ -218,7 +218,7 @@ struct tokenatr{
 
 };
 
-//Vari·veis de controle lÈxico
+//Vari√°veis de controle l√©xico
 
  char lexema[200];
  int contador;
@@ -226,7 +226,7 @@ struct tokenatr{
  int coluna= 1;
  int estado;
 
-//Variaveis de controle sint·tico
+//Variaveis de controle sint√°tico
 
 int desemNum;
 
@@ -272,10 +272,10 @@ FILE *programa;
 int d =0;
 int x = 0;
 bool oprdnum = false;
- //Tabela LÈxica
+ //Tabela L√©xica
  int tab_transicao [31][22] =
  {    // 0      1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20    21
-      // espaÁo	\n	D	.	L	E	_	ì	+	-  {	}	<	>	=	*	/  (	)	;	EOF  QQ
+      // espa√ßo	\n	D	.	L	E	_	‚Äú	+	-  {	}	<	>	=	*	/  (	)	;	EOF  QQ
   // 0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20   21
      0,	 0,	 1,	-1,	11,	11,	-1,	 8,	24,	25,	13,	-1,	19,	17,	23,	26,	27,	28,	29,	30,	16, -1, //estado 0
     -1,	-1,	 1,	 2,	-1,	 4,	-1,	-1,	-1,	-1,	-1,	-1,	-1,	-1,	-1,	-1,	-1,	-1,	-1,	-1,	-1, -1, //estado 1
@@ -311,7 +311,7 @@ bool oprdnum = false;
 
  };
 
-//Tabela Sint·tica
+//Tabela Sint√°tica
 int tabela_sintatica [60][37] =
 {
    202, -1, -1,	-1,	-1,	-1,	-1,	-1,	-1,	-1,	-1,	-1,	-1,	-1,	-1, -1,	-1,	-1,	-1,	-1,	-1,	-1,	 1, -1, -1,	-1,	-1,	-1,	-1,	-1,	-1,	-1,	-1,	-1,	-1,	-1,	-1,
@@ -377,7 +377,7 @@ int tabela_sintatica [60][37] =
 };
  //Mapeamento caracter/coluna
 
-// ---------------------- FUN«‘ES L…XICO-------------------
+// ---------------------- FUN√á√îES L√âXICO-------------------
 Lista* inicializaTabela()
 {
 
@@ -570,11 +570,11 @@ Lista* l = lista_criar();
        return mapa_estado_token(estado);
  }
 
- //---------------------FUN«OES SINT¿TICO-------------------------------------
+ //---------------------FUN√áOES SINT√ÄTICO-------------------------------------
 
  int desempilhaNum(int producao)
  {
-     // Retorna 2 * o n∫ de caracteres no lado direito da produaÁ„o
+     // Retorna 2 * o n¬∫ de caracteres no lado direito da produa√ß√£o
      switch(producao)
      {
          case PRODUCAO_1: return 2;
@@ -639,8 +639,8 @@ Lista* l = lista_criar();
      if(producao == PRODUCAO_20) printf("OPRD->id\n");
      if(producao == PRODUCAO_21) printf("OPRD->num\n");
      if(producao == PRODUCAO_22) printf("A-> COND A\n");
-     if(producao == PRODUCAO_23) printf("COND->CABE«ALHO CORPO\n");
-     if(producao == PRODUCAO_24) printf("CABE«ALHO ->se (EXP_R) entao\n");
+     if(producao == PRODUCAO_23) printf("COND->CABE√áALHO CORPO\n");
+     if(producao == PRODUCAO_24) printf("CABE√áALHO ->se (EXP_R) entao\n");
      if(producao == PRODUCAO_25) printf("EXP_R->OPRD opr OPRD\n");
      if(producao == PRODUCAO_26) printf("CORPO-> ES CORPO\n");
      if(producao == PRODUCAO_27) printf("CORPO-> CMD CORPO\n");
@@ -727,10 +727,10 @@ int colunaA(int x)
 
 void erroSintatico()
 {
-    printf("Erro sint·tico na linha %d ", linha-1);
+    printf("Erro sint√°tico na linha %d ", linha-1);
 
 }
-// ---------------------- FUN«‘ES SEM¬NTICO-------------------
+// ---------------------- FUN√á√îES SEM√ÇNTICO-------------------
 
 void inicializaSemantico()
 {
@@ -816,7 +816,7 @@ void analisadorSemantico(int reducao)
 
         case 11:
             if(id[d-1].tipo == 0)
-                printf("Erro: Vari·vel n„o declarada case \n");
+                printf("Erro: Vari√°vel n√£o declarada case \n");
             else
                 if(id[d-1].tipo == 1)
                 {
@@ -873,7 +873,7 @@ void analisadorSemantico(int reducao)
         case 15:
             printf(id[d].lexema);
             if(id[d].tipo == 0)
-               printf("Erro: Vari·vel n„o declarada\n");
+               printf("Erro: Vari√°vel n√£o declarada\n");
             else
             {
                 strcpy(semARG.lexema,id[d].lexema);
@@ -886,7 +886,7 @@ void analisadorSemantico(int reducao)
             {
                 printf(id[d-1].lexema);
                 if(id[d-1].tipo == 0)
-                printf("Erro: Vari·vel n„o declarada");
+                printf("Erro: Vari√°vel n√£o declarada");
                 else
                 {
                     if(id[d-1].tipo == semLD.tipo)
@@ -907,7 +907,7 @@ void analisadorSemantico(int reducao)
             else
             {
                 if(id[d-2].tipo == 0)
-                printf("Erro: Vari·vel n„o declarada");
+                printf("Erro: Vari√°vel n√£o declarada");
                 else
                 {
                     if(id[d-2].tipo == semLD.tipo)
@@ -972,7 +972,7 @@ void analisadorSemantico(int reducao)
         case 20:
             printf(id[d].lexema);
             if(id[d].tipo == 0)
-               printf("Erro: Vari·vel n„o declarada\n");
+               printf("Erro: Vari√°vel n√£o declarada\n");
             else
             {
                 x++;
